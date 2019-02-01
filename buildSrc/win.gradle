@@ -70,9 +70,9 @@ setupTools("windows_tools",
         }
     },
     { properties ->
-        defineProperty("WINDOWS_VS_VSINSTALLDIR", properties, "c:/Program Files (x86)/Microsoft Visual Studio/2017/Professional");
+        defineProperty("WINDOWS_VS_VSINSTALLDIR", properties, "C:/Program Files (x86)/Microsoft Visual Studio/2017/Community");
         defineProperty("WINDOWS_VS_WINSDKDLLINSTALLDIR", properties, "c:/Program Files (x86)/Windows Kits/10/Redist/ucrt/DLLs");
-        defineProperty("WINDOWS_SDK_DIR", properties, System.getenv().get("WINSDK_DIR"))
+        defineProperty("WINDOWS_SDK_DIR", properties, "C:\\Program Files (x86)\\Windows Kits\\10")
         defineProperty("WINDOWS_SDK_VERSION", properties, "")
         defineProperty("WINDOWS_VS_VCINSTALLDIR", properties, "$WINDOWS_VS_VSINSTALLDIR/VC")
         defineProperty("WINDOWS_VS_DEVENVDIR", properties, "$WINDOWS_VS_VSINSTALLDIR/Common7/IDE")
@@ -138,7 +138,7 @@ ext.WINDOWS_NATIVE_COMPILE_ENVIRONMENT = [
         "LIBPATH"              : WINDOWS_VS_LIBPATH,
         "DXSDK_DIR"            : WINDOWS_DXSDK_DIR
 ];
-def msvcVer = System.getenv("MSVC_VER") ?: "14.10.25017"
+def msvcVer = System.getenv("MSVC_VER") ?: "14.16.27023"
 def msvcBinDir = ""
 if (hasProperty('toolchainDir')) {
     msvcBinDir = "$WINDOWS_VS_VSINSTALLDIR/VC/bin/$CPU_BITS"
